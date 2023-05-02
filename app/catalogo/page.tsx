@@ -3,26 +3,18 @@
 import {motion} from 'framer-motion'
 import Link from 'next/link'
 import { Carta } from './models'
-//import { getCatalogo } from './services'
+import { getCatalogo } from './services'
 
- function getCatalogo(){
-    
-  const url = 'https://apimaxv2.apexmaicol.online/VPsublimacion/'
 
-  return fetch(url)
-    .then(res => res.json())
+
+ async function fetchCatalogo() {
+     return await getCatalogo()
 }
-
-
-
-// async function fetchCatalogo() {
-//     return await getCatalogo()
-// }
 
 
 async function Catalogo() {
 
-  const cartas:Carta[] = await getCatalogo()
+  const cartas:Carta[] = await fetchCatalogo()
 
   return (
     <div className='pt-14 font-montserrat relative overflow-hidden min-h-screen'>
