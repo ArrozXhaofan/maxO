@@ -1,4 +1,4 @@
-export function cargarTest(id:any){
+export function getStaticPaths(id:any){
     const url = `https://apimaxv2.apexmaicol.online/VPsublimacion/${id}`
     return fetch(url)
       .then(res => res.json())
@@ -8,7 +8,7 @@ export function cargarTest(id:any){
 async function page({params}:any) {
 
     const {id} = params
-    const datos = await  cargarTest(id)
+    const datos = await  getStaticPaths(id)
 
   return (
     <div className='pt-40'>

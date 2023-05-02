@@ -7,14 +7,14 @@ import { getCatalogo } from './services'
 
 
 
- async function fetchCatalogo() {
+ async function getStaticProps() {
      return await getCatalogo()
 }
 
 
 async function Catalogo() {
 
-  const cartas:Carta[] = await fetchCatalogo()
+  const cartas:Carta[] = await getStaticProps()
 
   return (
     <div className='pt-14 font-montserrat relative overflow-hidden min-h-screen'>
