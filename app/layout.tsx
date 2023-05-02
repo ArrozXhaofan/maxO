@@ -1,5 +1,8 @@
+import { Navbar } from '@/components'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { Routes } from '@/models'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,9 +16,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+
   return (
+
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+
+      <body className={inter.className}>
+
+        <Navbar pathnames={[Routes.HOME, Routes.CONTACTO, Routes.CATALOGO]} />
+
+        {children}
+
+      </body>
+
     </html>
   )
 }
