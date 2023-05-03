@@ -2,19 +2,13 @@
 
 import {motion} from 'framer-motion'
 import Link from 'next/link'
-import { Carta } from './models'
-import { getCatalogo } from './services'
 
 
-
- async function getStaticProps() {
-     return await getCatalogo()
-}
 
 
 async function Catalogo() {
 
-  const cartas:Carta[] = await getStaticProps()
+
 
   return (
     <div className='pt-14 font-montserrat relative overflow-hidden min-h-screen'>
@@ -63,15 +57,7 @@ async function Catalogo() {
 
       <div className=' pt-10'>
         
-         {
-         cartas.map(carta => (
-          <li key={carta.ID}>
-            <Link href={`catalogo/${carta.ID}`}>
-              {carta.MODELO}
-            </Link>
-          </li>
-         ))
-        } 
+        
       </div>
 
       </div>
